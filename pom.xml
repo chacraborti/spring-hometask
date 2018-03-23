@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.epam.spring.core</groupId>
-    <artifactId>spring-task</artifactId>
+    <artifactId>spring-hometask</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -16,6 +16,7 @@
         <findbugs.version>3.0.1</findbugs.version>
         <junit.version>4.12</junit.version>
         <war.plugin.version>3.2.0</war.plugin.version>
+        <freemarker.version>2.3.23</freemarker.version>
     </properties>
 
     <build>
@@ -102,9 +103,8 @@
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>2.3.23</version>
+            <version>${freemarker.version}</version>
         </dependency>
-
         <!-- Needed for Lowagie PDF View -->
         <dependency>
             <groupId>com.lowagie</groupId>
@@ -139,8 +139,6 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-
-
     </dependencies>
 
 </project>
