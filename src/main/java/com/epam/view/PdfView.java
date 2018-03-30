@@ -1,5 +1,6 @@
 package com.epam.view;
 
+import com.epam.spring.hometask.domain.Ticket;
 import com.lowagie.text.Document;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
@@ -7,6 +8,7 @@ import org.springframework.web.servlet.view.document.AbstractPdfView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.Map;
 
 public class PdfView extends AbstractPdfView{
@@ -16,16 +18,16 @@ public class PdfView extends AbstractPdfView{
 		PdfWriter writer, HttpServletRequest request,
 		HttpServletResponse response) throws Exception {
 
-		Map<String,String> revenueData = (Map<String,String>) model.get("revenueData");
+		List<Ticket> tickets = (List<Ticket>) model.get("tickets");
 
 		Table table = new Table(2);
-		table.addCell("Month");
-		table.addCell("Revenue");
+		table.addCell("Movie");
+		table.addCell("User");
 
-		for (Map.Entry<String, String> entry : revenueData.entrySet()) {
-			table.addCell(entry.getKey());
-			table.addCell(entry.getValue());
-                }
+		for (Ticket ticket: tickets) {
+			table.addCell(ticket.getEvent().getName());
+			table.addCell(ticket.getUser().getFirstName());
+		}
 
 		document.add(table);
 	}

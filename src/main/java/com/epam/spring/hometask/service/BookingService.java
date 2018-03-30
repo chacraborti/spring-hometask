@@ -6,6 +6,7 @@ import com.epam.spring.hometask.domain.User;
 
 import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Set;
 
 /**
@@ -43,4 +44,7 @@ public interface BookingService {
      */
     public @Nonnull Set<Ticket> getPurchasedTicketsForEvent(@Nonnull Event event, @Nonnull LocalDateTime dateTime);
 
+    Collection<Ticket> getByUserName(String userName);
+
+    Collection<Ticket> getByIdEvent(Integer idEvent);
 }

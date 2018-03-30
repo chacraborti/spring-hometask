@@ -1,5 +1,6 @@
 package com.epam.spring.hometask.dao;
 
+import com.epam.spring.hometask.dao.row_mapper.TicketRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,6 +12,7 @@ import com.epam.spring.hometask.domain.User;
 
 import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Set;
 @Repository
 public class BookingServiceDaoImpl implements BookingServiceDao{
@@ -38,10 +40,18 @@ public class BookingServiceDaoImpl implements BookingServiceDao{
 
     }
 
-    @Nonnull
     @Override
     public Set<Ticket> getPurchasedTicketsForEvent(@Nonnull Event event, @Nonnull LocalDateTime dateTime) {
         return null;
     }
 
+    @Override
+    public Collection<Ticket> getByUserName(String userName) {
+        return jdbcTemplate.query("SELECT * FROM Ticket JOIN User ON idUser.Ticket = idUser.User WHERE Name.User = ?;", new TicketRowMapper());
+    }
+
+    @Override
+    public Collection<Ticket> getByIdEvent(Integer idEvent) {
+        return jdbcTemplate.query("SELECT * FROM Ticket WHERE idEvent = ?;", new TicketRowMapper());
+    }
 }

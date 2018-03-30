@@ -9,6 +9,7 @@ import com.epam.spring.hometask.domain.User;
 
 import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Set;
 @Service
 public class BookingServiceImpl implements BookingService {
@@ -29,9 +30,18 @@ public class BookingServiceImpl implements BookingService {
         }
     }
 
-    @Nonnull
     @Override
     public Set<Ticket> getPurchasedTicketsForEvent(@Nonnull Event event, @Nonnull LocalDateTime dateTime) {
         return bookingServiceDao.getPurchasedTicketsForEvent(event, dateTime);
+    }
+
+    @Override
+    public Collection<Ticket> getByUserName(String userName) {
+        return bookingServiceDao.getByUserName(userName);
+    }
+
+    @Override
+    public Collection<Ticket> getByIdEvent(Integer idEvent) {
+        return bookingServiceDao.getByIdEvent(idEvent);
     }
 }
