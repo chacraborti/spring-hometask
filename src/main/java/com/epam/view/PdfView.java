@@ -13,7 +13,10 @@ import java.util.Map;
 
 public class PdfView extends AbstractPdfView{
 
-	@Override
+    public PdfView() {
+    }
+
+    @Override
 	protected void buildPdfDocument(Map model, Document document,
 		PdfWriter writer, HttpServletRequest request,
 		HttpServletResponse response) throws Exception {
