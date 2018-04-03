@@ -42,46 +42,28 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return fmc;
     }
 
-    @Override
-    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        configurer.defaultContentType(MediaType.TEXT_HTML);
-    }
-
-//    @Override
-//    public void configureViewResolvers(ViewResolverRegistry registry) {
-//        registry.jsp("/WEB-INF/pdf/", ".jsp");
-//        registry.enableContentNegotiation(
-//                 new PdfView()
-//        );
-//    }
-
-    @Component
-    public class PDFViewResolver implements ViewResolver {
-
-        public PDFViewResolver() {
-        }
-
-        @Override
-        public View resolveViewName(String s, Locale locale) throws Exception {
-            return new PdfView();
-        }
-    }
-
     @Bean
-    public ViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager, PDFViewResolver pdfViewResolver) {
+    public ViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
 
         ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
         resolver.setContentNegotiationManager(manager);
 
         List<ViewResolver> resolvers = new ArrayList<>();
         resolvers.add(freemarkerViewResolver());
-        resolvers.add(pdfViewResolver);
+        resolvers.add(new PDFViewResolver());
 
         resolver.setViewResolvers(resolvers);
 
         return resolver;
     }
 
+    public class PDFViewResolver implements ViewResolver {
+
+        @Override
+        public View resolveViewName(String s, Locale locale) throws Exception {
+            return new PdfView();
+        }
+    }
 
 }
 

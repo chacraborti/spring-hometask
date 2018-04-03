@@ -27,22 +27,38 @@
                </tbody>
             </table>
          </div>
-        <div>
-            <form method="post" action="/event" enctype="multipart/form-data">
-                <table>
-                  <thead>
-                      <tr>
-                          <th>Create Event</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr><td><input type="file" name="file"></td></tr>
-                      <tr><td><input type="file" name="file"></td></tr>
-                      <tr><td><input type="file" name="file"></td></tr>
-                      <tr><td><div align="center"><input type="submit" value="Upload"></div></td></tr>
-                  </tbody>
-                </table>
-            </form>
-          </div>
+       <div>
+          <form action="./events/event" method="post" >
+             <div>Add new event</div>
+             <table>
+             <tr>
+                                <td>Id:</td>
+                                <td><input type="text" name="id" /></td>
+                             </tr>
+                <tr>
+                   <td>Name:</td>
+                   <td><input type="text" name="name" /></td>
+                </tr>
+                <tr>
+                   <td>Price:</td>
+                   <td><input type="text" name="basePrice" /></td>
+                </tr>
+                <tr>
+                  <td>Event Rating</td>
+                  <td>
+                     <select name="rating">
+                     <#list eventRatings as rating>
+                      <option value="${rating}">${rating.name()}</option>
+
+                     </#list>
+                     </select>
+                  </td>
+                </tr>
+                <tr>
+                   <td><input type="submit" value="Submit" /></td>
+                </tr>
+             </table>
+          </form>
+       </div>
    </body>
 </html>

@@ -47,11 +47,11 @@ public class BookingServiceDaoImpl implements BookingServiceDao{
 
     @Override
     public Collection<Ticket> getByUserName(String userName) {
-        return jdbcTemplate.query("SELECT * FROM Ticket JOIN User ON idUser.Ticket = idUser.User WHERE Name.User = ?;", new TicketRowMapper());
+        return jdbcTemplate.query("SELECT * FROM Ticket JOIN User ON Ticket.id = User.id WHERE User.first_name = ?", new Object[] { userName }, new TicketRowMapper());
     }
 
     @Override
     public Collection<Ticket> getByIdEvent(Integer idEvent) {
-        return jdbcTemplate.query("SELECT * FROM Ticket WHERE idEvent = ?;", new TicketRowMapper());
+        return jdbcTemplate.query("SELECT * FROM Ticket WHERE idEvent = ?", new Object[] { idEvent }, new TicketRowMapper());
     }
 }

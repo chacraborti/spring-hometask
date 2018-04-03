@@ -1,5 +1,8 @@
 package com.epam.spring.hometask.domain;
 
+import com.sun.javafx.beans.IDProperty;
+import org.springframework.context.annotation.Primary;
+
 /**
  * @author Yuriy_Tkach
  */
