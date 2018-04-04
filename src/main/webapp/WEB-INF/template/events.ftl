@@ -60,5 +60,22 @@
              </table>
           </form>
        </div>
+        <div>
+           <form method="post" action="/events/file" enctype="multipart/form-data">
+               <table>
+                 <thead>
+                     <tr>
+                         <th>Upload Events</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr><td><input type="file" name="file"></td></tr>
+                     <tr><td><input type="file" name="file"></td></tr>
+                     <tr><td><input type="file" name="file"></td></tr>
+                     <tr><td><div align="center"><input type="submit" value="Upload"></div></td></tr>
+                 </tbody>
+               </table>
+           </form>
+         </div>
    </body>
 </html>
