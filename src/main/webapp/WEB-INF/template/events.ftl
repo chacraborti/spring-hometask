@@ -61,7 +61,7 @@
           </form>
        </div>
         <div>
-           <form method="post" action="/events/file" enctype="multipart/form-data">
+           <form method="post" action="./events/file" enctype="multipart/form-data">
                <table>
                  <thead>
                      <tr>
@@ -70,9 +70,7 @@
                  </thead>
                  <tbody>
                      <tr><td><input type="file" name="file"></td></tr>
-                     <tr><td><input type="file" name="file"></td></tr>
-                     <tr><td><input type="file" name="file"></td></tr>
-                     <tr><td><div align="center"><input type="submit" value="Upload"></div></td></tr>
+                     <tr><td><input type="submit" value="Upload"></div></td></tr>
                  </tbody>
                </table>
            </form>

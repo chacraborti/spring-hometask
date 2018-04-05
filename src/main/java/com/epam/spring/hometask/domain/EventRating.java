@@ -1,8 +1,11 @@
 package com.epam.spring.hometask.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * @author Yuriy_Tkach
  */
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum EventRating {
 
     LOW(0),
