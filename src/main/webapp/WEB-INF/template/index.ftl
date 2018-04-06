@@ -7,10 +7,8 @@
       </h2>
       <div>
          <ul>
-            <li><a href="auditoriums">Auditoriums</a></li>
             <li><a href="events">Events</a></li>
-            <li><a href="users">Users</a></li>
-            <li><a href="booking/tickets">Tickets Booking</a></li>
+            <li><a href="booking">Tickets Booking</a></li>
          </ul>
       </div>
    </body>

@@ -31,7 +31,7 @@ public interface BookingService {
      * @param tickets
      *            Set of saveTicket
      */
-    public void bookTickets(@Nonnull Set<Ticket> tickets, User user);
+    public void bookTickets(Ticket tickets, User user);
 
     /**
      * Getting all purchased saveTicket for event on specific air date and time
@@ -47,4 +47,6 @@ public interface BookingService {
     Collection<Ticket> getByUserName(String userName);
 
     Collection<Ticket> getByIdEvent(Integer idEvent);
+
+    Collection<Ticket> getAll();
 }

@@ -1,8 +1,6 @@
 package com.epam.spring.hometask;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import com.epam.spring.hometask.aspect.CounterAspect;
 import com.epam.spring.hometask.domain.Event;
 import com.epam.spring.hometask.domain.Ticket;
@@ -10,6 +8,8 @@ import com.epam.spring.hometask.domain.User;
 import com.epam.spring.hometask.service.DiscountService;
 import com.epam.spring.hometask.service.EventService;
 import com.epam.spring.hometask.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +57,8 @@ public class App {
             List<Ticket> tickets = new ArrayList<>();
             while (numOfTickets!=0){
                 Ticket ticket = new Ticket();
-                ticket.setUser(user);
-                ticket.setEvent(event);
+                ticket.setUserName(user.getFirstName());
+                ticket.setEventName(event.getName());
                 user.getTickets().add(ticket);
                 numOfTickets--;
             }
@@ -66,7 +66,7 @@ public class App {
             userService.saveTicket(user, tickets);
 
             System.out.println("Tickets you purchased: ");
-            user.getTickets().forEach(ticket -> System.out.println(ticket.getEvent().getName() + " for the name of: " + user.getFirstName()));
+            user.getTickets().forEach(ticket -> System.out.println(ticket.getEventName() + " for the name of: " + user.getFirstName()));
         } else {
             System.out.println("Wrong number");
         }

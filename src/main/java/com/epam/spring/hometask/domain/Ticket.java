@@ -5,32 +5,31 @@ package com.epam.spring.hometask.domain;
  */
 public class Ticket extends DomainObject implements Comparable<Ticket> {
 
-    private User user;
+    private String userName;
 
-    private Event event;
+    private String eventName;
 
     public Ticket() {
     }
 
-    public User getUser() {
-        return user;
+    public String getUserName() {
+        return userName;
     }
 
-    public Event getEvent() {
-        return event;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
     @Override
-    public int compareTo(Ticket other) {
-        return event.getName().compareTo(other.getEvent().getName());
+    public int compareTo(Ticket o) {
+        return 0;
     }
-
 }

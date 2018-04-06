@@ -11,7 +11,7 @@ public class Event extends DomainObject {
 
     private String name;
 
-    private double basePrice;
+    private int basePrice;
 
     private EventRating rating;
 
@@ -32,11 +32,11 @@ public class Event extends DomainObject {
         this.name = name;
     }
 
-    public double getBasePrice() {
+    public int getBasePrice() {
         return basePrice;
     }
 
-    public void setBasePrice(double basePrice) {
+    public void setBasePrice(int basePrice) {
         this.basePrice = basePrice;
     }
 

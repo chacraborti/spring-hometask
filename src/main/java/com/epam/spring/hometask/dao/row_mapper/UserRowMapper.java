@@ -1,7 +1,7 @@
 package com.epam.spring.hometask.dao.row_mapper;
 
-import org.springframework.jdbc.core.RowMapper;
 import com.epam.spring.hometask.domain.User;
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

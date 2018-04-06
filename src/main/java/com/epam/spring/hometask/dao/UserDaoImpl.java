@@ -1,14 +1,14 @@
 package com.epam.spring.hometask.dao;
 
+import com.epam.spring.hometask.dao.row_mapper.TicketRowMapper;
+import com.epam.spring.hometask.dao.row_mapper.UserRowMapper;
+import com.epam.spring.hometask.domain.Ticket;
+import com.epam.spring.hometask.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import com.epam.spring.hometask.dao.row_mapper.TicketRowMapper;
-import com.epam.spring.hometask.dao.row_mapper.UserRowMapper;
-import com.epam.spring.hometask.domain.Ticket;
-import com.epam.spring.hometask.domain.User;
 
 import javax.annotation.Nonnull;
 import java.util.Collection;

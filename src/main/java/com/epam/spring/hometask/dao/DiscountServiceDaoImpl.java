@@ -1,7 +1,7 @@
 package com.epam.spring.hometask.dao;
 
-import org.springframework.stereotype.Repository;
 import com.epam.spring.hometask.domain.Event;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Nonnull;
 @Repository

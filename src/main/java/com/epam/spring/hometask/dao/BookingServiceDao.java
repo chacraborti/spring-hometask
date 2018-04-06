@@ -18,7 +18,7 @@ public interface BookingServiceDao {
     /**
      * Ticket booking by user
      */
-    void bookTickets(@Nonnull Set<Ticket> tickets, User user);
+    void bookTickets(Ticket tickets, User user);
 
     /**
      * Getting list of tickets purchased by the customer
@@ -29,4 +29,6 @@ public interface BookingServiceDao {
     Collection<Ticket> getByUserName(String userName);
 
     Collection<Ticket> getByIdEvent(Integer idEvent);
+
+    Collection<Ticket> getAll();
 }

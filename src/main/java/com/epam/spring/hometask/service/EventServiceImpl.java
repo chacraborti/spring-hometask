@@ -1,10 +1,10 @@
 package com.epam.spring.hometask.service;
 
+import com.epam.spring.hometask.dao.EventDao;
+import com.epam.spring.hometask.domain.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import com.epam.spring.hometask.dao.EventDao;
-import com.epam.spring.hometask.domain.Event;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

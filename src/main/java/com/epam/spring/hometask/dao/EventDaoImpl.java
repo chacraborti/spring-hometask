@@ -1,12 +1,12 @@
 package com.epam.spring.hometask.dao;
 
+import com.epam.spring.hometask.dao.row_mapper.EventRowMapper;
+import com.epam.spring.hometask.domain.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import com.epam.spring.hometask.dao.row_mapper.EventRowMapper;
-import com.epam.spring.hometask.domain.Event;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -34,9 +34,9 @@ public class EventDaoImpl implements EventDao {
     @Override
     public Event save(@Nonnull Event object) {
         String name = object.getName();
-        Double price = object.getBasePrice();
-        Integer idEventRating = object.getRating().ordinal();
-        jdbcTemplate.update("INSERT INTO Event (name, base_price, idEventRating) VALUES(?,?,?);", new Object[]{name, price, idEventRating});
+        int price = object.getBasePrice();
+        Integer idEventType = object.getRating().ordinal();
+        jdbcTemplate.update("INSERT INTO Event (name, base_price, idEventType) VALUES(?,?,?);", new Object[]{name, price, idEventType});
         return object;
     }
 

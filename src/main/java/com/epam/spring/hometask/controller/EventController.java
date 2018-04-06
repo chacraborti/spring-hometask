@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import sun.plugin.javascript.navig.Window;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class EventController {
     }
 
     @RequestMapping(value = "/event", method = RequestMethod.POST)
-    public String saveEvent(@ModelAttribute("event") Event event) {
+    public String saveEvent(@ModelAttribute("eventForm") Event event) {
         eventService.save(event);
         return "redirect:/events";
     }
@@ -80,4 +81,25 @@ public class EventController {
         return "redirect:/events";
     }
 
+    @RequestMapping(value = "/uploadMultipleFile", method = RequestMethod.POST)
+    public @ResponseBody
+    String uploadMultipleFileHandler(@RequestParam("file") MultipartFile[] files) {
+        final List<MultipartFile> fileList = Arrays.asList(files);
+
+        final List<Event> eventList = new ArrayList<>();
+        for (MultipartFile file : files) {
+            if (!file.isEmpty()) {
+                try {
+                    eventList.addAll(JsonParser.convertJsonToList(file.getBytes(), Event.class));
+                } catch (IOException e) {
+                    return "redirect:/error";
+                }
+            }
+        }
+            for (Event event : eventList) {
+                eventService.save(event);
+            }
+        return "redirect:/events";
+    }
 }
+

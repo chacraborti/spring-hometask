@@ -28,10 +28,13 @@ public class PdfView extends AbstractPdfView{
 		table.addCell("User");
 
 		for (Ticket ticket: tickets) {
-			table.addCell(ticket.getEvent().getName());
-			table.addCell(ticket.getUser().getFirstName());
+			if (ticket.getEventName()!=null){
+				table.addCell(ticket.getEventName());
+			}
+			if (ticket.getUserName() != null) {
+				table.addCell(ticket.getUserName());
+			}
 		}
-
 		document.add(table);
 	}
 }

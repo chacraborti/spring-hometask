@@ -1,14 +1,14 @@
 package com.epam.spring.hometask.dao;
 
+import com.epam.spring.hometask.dao.row_mapper.EventRowMapper;
 import com.epam.spring.hometask.dao.row_mapper.TicketRowMapper;
+import com.epam.spring.hometask.domain.Event;
+import com.epam.spring.hometask.domain.Ticket;
+import com.epam.spring.hometask.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import com.epam.spring.hometask.dao.row_mapper.EventRowMapper;
-import com.epam.spring.hometask.domain.Event;
-import com.epam.spring.hometask.domain.Ticket;
-import com.epam.spring.hometask.domain.User;
 
 import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
@@ -36,8 +36,7 @@ public class BookingServiceDaoImpl implements BookingServiceDao{
     }
 
     @Override
-    public void bookTickets(@Nonnull Set<Ticket> tickets, User user) {
-
+    public void bookTickets(Ticket tickets, User user) {
     }
 
     @Override
@@ -47,11 +46,16 @@ public class BookingServiceDaoImpl implements BookingServiceDao{
 
     @Override
     public Collection<Ticket> getByUserName(String userName) {
-        return jdbcTemplate.query("SELECT * FROM Ticket JOIN User ON Ticket.id = User.id WHERE User.first_name = ?", new Object[] { userName }, new TicketRowMapper());
+        return jdbcTemplate.query("select Event.name, user.first_name from ticket join event on event.idEvent = ticket.idEvent join user on user.id = ticket.idUser WHERE User.first_name = ?", new Object[] { userName }, new TicketRowMapper());
     }
 
     @Override
     public Collection<Ticket> getByIdEvent(Integer idEvent) {
-        return jdbcTemplate.query("SELECT * FROM Ticket WHERE idEvent = ?", new Object[] { idEvent }, new TicketRowMapper());
+        return jdbcTemplate.query("select Event.name, user.first_name from ticket join event on event.idEvent = ticket.idEvent join user on user.id = ticket.idUser WHERE idEvent = ?", new Object[] { idEvent }, new TicketRowMapper());
+    }
+
+    @Override
+    public Collection<Ticket> getAll() {
+        return jdbcTemplate.query("select Event.name, user.first_name from ticket join event on event.idEvent = ticket.idEvent join user on user.id = ticket.idUser", new TicketRowMapper());
     }
 }

@@ -1,11 +1,11 @@
 package com.epam.spring.hometask.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.epam.spring.hometask.dao.BookingServiceDao;
 import com.epam.spring.hometask.domain.Event;
 import com.epam.spring.hometask.domain.Ticket;
 import com.epam.spring.hometask.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
@@ -23,11 +23,9 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public void bookTickets(@Nonnull Set<Ticket> tickets, User user) {
-        bookingServiceDao.bookTickets(tickets, user);
-        for (Ticket ticket : tickets) {
-            ticket.setUser(user);
-        }
+    public void bookTickets(Ticket ticket, User user) {
+        bookingServiceDao.bookTickets(ticket, user);
+        ticket.setUserName(user.getFirstName());
     }
 
     @Override
@@ -43,5 +41,10 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public Collection<Ticket> getByIdEvent(Integer idEvent) {
         return bookingServiceDao.getByIdEvent(idEvent);
+    }
+
+    @Override
+    public Collection<Ticket> getAll() {
+        return bookingServiceDao.getAll();
     }
 }

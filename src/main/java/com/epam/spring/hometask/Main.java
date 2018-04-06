@@ -1,8 +1,8 @@
 package com.epam.spring.hometask;
 
+import com.epam.spring.hometask.config.AppConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import com.epam.spring.hometask.config.AppConfig;
 
 public class Main {
 

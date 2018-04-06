@@ -1,8 +1,8 @@
 package com.epam.spring.hometask.dao.row_mapper;
 
-import org.springframework.jdbc.core.RowMapper;
 import com.epam.spring.hometask.domain.Event;
 import com.epam.spring.hometask.domain.EventRating;
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
