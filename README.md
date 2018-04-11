@@ -7,5 +7,3 @@ The hometask assignment can be found on project [Wiki](https://git.epam.com/yuri
 Sidarovich Ilona Spring Core 1st part hometask
 
 The login of the userName is andrew
-
-DB script is situated here: database_script.txt

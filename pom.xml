@@ -17,6 +17,8 @@
         <junit.version>4.12</junit.version>
         <war.plugin.version>3.2.0</war.plugin.version>
         <freemarker.version>2.3.23</freemarker.version>
+        <spring-security-core.version>3.2.4.RELEASE</spring-security-core.version>
+        <dbh2.version>1.4.187</dbh2.version>
     </properties>
 
     <build>
@@ -157,5 +159,35 @@
             <artifactId>commons-io</artifactId>
             <version>1.4</version>
         </dependency>
+        <!-- Add Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${dbh2.version}</version>
+        </dependency>
+        <!-- Spring JDBC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
     </dependencies>
 </project>

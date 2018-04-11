@@ -1,9 +1,3 @@
-Option 2: Or upload your HTML document
-
-Indentation level:
-
-FORMAT HTML  FORMAT HTML IN NEW WINDOW
-Formatted HTML:
 <html>
    <head>
       <title>Theater</title>
