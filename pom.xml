@@ -182,12 +182,7 @@
             <artifactId>h2</artifactId>
             <version>${dbh2.version}</version>
         </dependency>
-        <!-- Spring JDBC -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+
 
     </dependencies>
 </project>
