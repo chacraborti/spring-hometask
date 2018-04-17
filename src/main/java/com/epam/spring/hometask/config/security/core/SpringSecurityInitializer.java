@@ -1,4 +1,4 @@
-package com.epam.spring.hometask.config.core;
+package com.epam.spring.hometask.config.security.core;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

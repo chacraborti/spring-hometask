@@ -2,14 +2,13 @@ package com.epam.spring.hometask.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class User extends DomainObject {
 
     private String firstName;
     private String login;
-    private Long password;
-    private String role;
+    private String password;
+    private List<Role> roles;
 
     private List<Ticket> tickets = new ArrayList<>();
 
@@ -40,15 +39,19 @@ public class User extends DomainObject {
         this.tickets = tickets;
     }
 
-    public Long getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(Long password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

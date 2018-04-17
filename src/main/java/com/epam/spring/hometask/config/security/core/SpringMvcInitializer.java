@@ -1,4 +1,4 @@
-package com.epam.spring.hometask.config.core;
+package com.epam.spring.hometask.config.security.core;
 
 import com.epam.spring.hometask.config.AppConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

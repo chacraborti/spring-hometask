@@ -63,4 +63,5 @@ public class UserDaoImpl implements UserDao {
     public List<Ticket> saveTicket(User user, List<Ticket> tickets) {
            return jdbcTemplate.query("INSERT INTO Ticket (id, idEvent, idUser) VALUES(?,?,?);", new TicketRowMapper());
     }
+
 }
