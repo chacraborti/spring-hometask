@@ -31,7 +31,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserByEmail(@Nonnull String login) throws EmptyResultDataAccessException {
-        return jdbcTemplate.queryForObject("SELECT id, first_name, login FROM User WHERE login = ?", new Object[]{login}, new UserRowMapper());
+        return jdbcTemplate.queryForObject("SELECT id, first_name, password, login, roles FROM User WHERE login = ?", new Object[]{login}, new UserRowMapper());
     }
 
     @Override
@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getById(@Nonnull Integer id) throws EmptyResultDataAccessException {
-          return jdbcTemplate.queryForObject("SELECT  id, first_name, login,  FROM User WHERE id = ?", new Object[] { id }, new UserRowMapper());
+          return jdbcTemplate.queryForObject("SELECT  id, first_name, password, login, roles FROM User WHERE id = ?", new Object[] { id }, new UserRowMapper());
     }
 
     @Nonnull

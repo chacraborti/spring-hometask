@@ -30,6 +30,7 @@ public class EventController {
     EventService eventService;
 
 
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getAll() {
         Collection<Event> events = eventService.getAll();
