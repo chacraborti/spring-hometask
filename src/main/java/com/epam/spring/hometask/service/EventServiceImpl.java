@@ -2,6 +2,7 @@ package com.epam.spring.hometask.service;
 
 import com.epam.spring.hometask.dao.EventDao;
 import com.epam.spring.hometask.domain.Event;
+import com.epam.spring.hometask.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,11 @@ public class EventServiceImpl implements EventService {
     @Override
     public Collection<Event> getAll() {
         return eventDao.getAll();
+    }
+
+    @Override
+    public void bookEvent(Ticket ticket) {
+        eventDao.bookEvent(ticket);
     }
 
 }

@@ -17,12 +17,15 @@
             </thead>
             <tbody>
                <#list events as event>
+               <form method="post" action="events/book" >
                <tr>
                   <td>${event.id}</td>
                   <td>${event.name}</td>
                   <td>${event.basePrice}</td>
                   <td>${event.rating}</td>
+                  <td><input type="submit" value="Book"/>
                </tr>
+                </form>
                </#list>
             </tbody>
          </table>

@@ -1,0 +1,6 @@
+{
+  "users":[
+    {"first_name":"ivan", "login":"ivan", "password":"123", "roles":["ROLE_REGISTERED_USER"]},
+    {"first_name":"admin", "login":"admin", "password":"123", "roles":["ROLE_REGISTERED_USER", "ROLE_BOOKING_MANAGER"]}
+  ]
+}

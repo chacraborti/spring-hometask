@@ -1,6 +1,7 @@
 package com.epam.spring.hometask.service;
 
 import com.epam.spring.hometask.domain.Event;
+import com.epam.spring.hometask.domain.Ticket;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 
@@ -15,7 +16,7 @@ import java.util.Collection;
 public interface EventService {
 
     public @Nullable Event getByName(@Nonnull String name);
-    
+
     Event save(@Nonnull Event object);
 
     void remove(@Nonnull Integer id);
@@ -24,4 +25,6 @@ public interface EventService {
 
     @Nonnull
     Collection<Event> getAll();
+
+    void bookEvent(Ticket ticket);
 }

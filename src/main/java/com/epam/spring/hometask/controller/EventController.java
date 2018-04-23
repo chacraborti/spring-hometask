@@ -2,6 +2,7 @@ package com.epam.spring.hometask.controller;
 
 import com.epam.spring.hometask.domain.Event;
 import com.epam.spring.hometask.domain.EventRating;
+import com.epam.spring.hometask.domain.Ticket;
 import com.epam.spring.hometask.service.EventService;
 import com.epam.spring.hometask.util.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,12 @@ public class EventController {
     @RequestMapping(value = "/event", method = RequestMethod.POST)
     public String saveEvent(@ModelAttribute("eventForm") Event event) {
         eventService.save(event);
+        return "redirect:/events";
+    }
+
+    @RequestMapping(value = "/book", method = RequestMethod.POST)
+    public String bookEvent(@ModelAttribute("eventForm") Event event) {
+        eventService.bookEvent(new Ticket("ivan", event.getName()));
         return "redirect:/events";
     }
 

@@ -25,6 +25,6 @@ CREATE TABLE User (
   id bigint auto_increment,
   first_name VARCHAR(45) NULL,
   login VARCHAR(45) NULL,
-  password VARCHAR(45) NULL,
+  password VARCHAR(60) NULL,
   roles VARCHAR(45) NULL,
   PRIMARY KEY (id));

@@ -36,10 +36,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User save(@Nonnull User object) {
-        Integer id = object.getId();
         String name = object.getFirstName();
         String login = object.getLogin();
-        jdbcTemplate.update("INSERT INTO User (first_name, login) VALUES(?,?);", new Object[]{id, name, login});
+        String password = object.getPassword();
+        String roles = object.getRolesAsSting();
+        jdbcTemplate.update("INSERT INTO User (first_name, login, password, roles) VALUES(?,?,?,?);", new Object[]{name, login, password, roles});
         return object;
     }
 

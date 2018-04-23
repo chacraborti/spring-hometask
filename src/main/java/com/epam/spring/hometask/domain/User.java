@@ -54,4 +54,12 @@ public class User extends DomainObject {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
+
+    public String getRolesAsSting(){
+        StringBuilder builder = new StringBuilder();
+        for (Role role : roles) {
+            builder.append(role.toString());
+        }
+        return builder.toString();
+    }
 }

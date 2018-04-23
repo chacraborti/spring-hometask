@@ -1,6 +1,7 @@
 package com.epam.spring.hometask.dao;
 
 import com.epam.spring.hometask.domain.Event;
+import com.epam.spring.hometask.domain.Ticket;
 
 import javax.annotation.Nonnull;
 import java.util.Collection;
@@ -31,4 +32,6 @@ public interface EventDao {
      * Getting all the events avaliable
      */
     Collection<Event> getAll();
+
+    void bookEvent(Ticket ticket);
 }

@@ -2,6 +2,7 @@ package com.epam.spring.hometask.dao;
 
 import com.epam.spring.hometask.dao.row_mapper.EventRowMapper;
 import com.epam.spring.hometask.domain.Event;
+import com.epam.spring.hometask.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -54,5 +55,10 @@ public class EventDaoImpl implements EventDao {
     @Override
     public Collection<Event> getAll() {
         return jdbcTemplate.query("SELECT * FROM Event;", new EventRowMapper());
+    }
+
+    @Override
+    public void bookEvent(Ticket ticket) {
+        jdbcTemplate.update("INSERT INTO Ticket (idEvent, idUser) VALUES(?,?)", new Object[]{ticket.getEventName(), ticket.getUserName()});
     }
 }

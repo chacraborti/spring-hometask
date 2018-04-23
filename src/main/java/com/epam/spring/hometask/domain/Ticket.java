@@ -12,12 +12,17 @@ public class Ticket extends DomainObject implements Comparable<Ticket> {
     public Ticket() {
     }
 
+    public Ticket(String userName, String eventName) {
+        this.userName = userName;
+        this.eventName = eventName;
+    }
+
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String userId) {
+        this.userName = userId;
     }
 
     public String getEventName() {
