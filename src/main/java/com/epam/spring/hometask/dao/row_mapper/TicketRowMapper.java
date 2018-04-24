@@ -13,11 +13,17 @@ public class TicketRowMapper implements RowMapper<Ticket>{
     @Override
     public Ticket mapRow(ResultSet resultSet, int i) throws SQLException {
         Ticket ticket = new Ticket();
-        String eventName = resultSet.getString(1);
-        String userName = resultSet.getString(2);
+        Integer eventName = resultSet.getInt(1);
+        Integer userName = resultSet.getInt(2);
 
-        ticket.setEventName(eventName);
-        ticket.setUserName(userName);
+        ticket.setEventId(eventName);
+        ticket.setUserId(userName);
+
+//        String eventName = resultSet.getString(1);
+//        String userName = resultSet.getString(2);
+//
+//        ticket.setEventName(eventName);
+//        ticket.setUserName(userName);
         return ticket;
     }
 }

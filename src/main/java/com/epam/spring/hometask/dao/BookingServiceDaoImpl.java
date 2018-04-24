@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
 @Repository
@@ -56,6 +57,8 @@ public class BookingServiceDaoImpl implements BookingServiceDao{
 
     @Override
     public Collection<Ticket> getAll() {
-        return jdbcTemplate.query("select Event.name, user.first_name from ticket join event on event.idEvent = ticket.idEvent join user on user.id = ticket.idUser", new TicketRowMapper());
+        Collection<Ticket> tickets = new ArrayList<>();
+        tickets =  jdbcTemplate.query("select Event.name, User.first_name from Ticket join Event on Event.id = Ticket.idEvent join User on User.id = Ticket.idUser", new TicketRowMapper());
+        return tickets;
     }
 }

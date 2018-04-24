@@ -25,7 +25,7 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public void bookTickets(Ticket ticket, User user) {
         bookingServiceDao.bookTickets(ticket, user);
-        ticket.setUserName(user.getFirstName());
+        ticket.setUserId(user.getId());
     }
 
     @Override

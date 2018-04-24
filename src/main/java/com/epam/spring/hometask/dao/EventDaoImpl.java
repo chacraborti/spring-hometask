@@ -59,6 +59,6 @@ public class EventDaoImpl implements EventDao {
 
     @Override
     public void bookEvent(Ticket ticket) {
-        jdbcTemplate.update("INSERT INTO Ticket (idEvent, idUser) VALUES(?,?)", new Object[]{ticket.getEventName(), ticket.getUserName()});
+        jdbcTemplate.update("INSERT INTO Ticket (idEvent, idUser) VALUES(?,?)", new Object[]{ticket.getEventId(), ticket.getUserId()});
     }
 }

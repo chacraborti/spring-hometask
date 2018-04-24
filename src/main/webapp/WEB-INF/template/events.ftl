@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                <#list events as event>
-               <form method="post" action="events/book" >
+               <form action="events/book" method="post" commandName="bookForm">
                <tr>
                   <td>${event.id}</td>
                   <td>${event.name}</td>

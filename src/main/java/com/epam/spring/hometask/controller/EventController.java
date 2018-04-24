@@ -66,8 +66,8 @@ public class EventController {
     }
 
     @RequestMapping(value = "/book", method = RequestMethod.POST)
-    public String bookEvent(@ModelAttribute("eventForm") Event event) {
-        eventService.bookEvent(new Ticket("ivan", event.getName()));
+    public String bookEvent(@ModelAttribute("bookForm") Event event) {
+        eventService.bookEvent(new Ticket(1, 2));
         return "redirect:/events";
     }
 

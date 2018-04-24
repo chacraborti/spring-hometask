@@ -57,8 +57,8 @@ public class App {
             List<Ticket> tickets = new ArrayList<>();
             while (numOfTickets!=0){
                 Ticket ticket = new Ticket();
-                ticket.setUserName(user.getFirstName());
-                ticket.setEventName(event.getName());
+                ticket.setUserId(user.getId());
+                ticket.setEventId(event.getId());
                 user.getTickets().add(ticket);
                 numOfTickets--;
             }
@@ -66,7 +66,7 @@ public class App {
             userService.saveTicket(user, tickets);
 
             System.out.println("Tickets you purchased: ");
-            user.getTickets().forEach(ticket -> System.out.println(ticket.getEventName() + " for the name of: " + user.getFirstName()));
+            user.getTickets().forEach(ticket -> System.out.println(ticket.getEventId() + " for the name of: " + user.getFirstName()));
         } else {
             System.out.println("Wrong number");
         }
