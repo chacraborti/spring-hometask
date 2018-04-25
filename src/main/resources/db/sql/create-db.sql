@@ -2,6 +2,7 @@ DROP TABLE Event IF EXISTS;
 DROP TABLE EventRating IF EXISTS;
 DROP TABLE Ticket IF EXISTS;
 DROP TABLE User IF EXISTS;
+DROP TABLE UserAccount IF EXISTS;
 
 CREATE TABLE Event (
   id bigint auto_increment,
@@ -20,6 +21,13 @@ CREATE TABLE Ticket (
   idEvent INT NULL,
   idUser INT NULL,
   PRIMARY KEY (id));
+
+CREATE TABLE UserAccount (
+  id bigint auto_increment,
+  moneyQuantity INT NULL,
+  idUser INT NULL,
+PRIMARY KEY (id));
+
 
 CREATE TABLE User (
   id bigint auto_increment,

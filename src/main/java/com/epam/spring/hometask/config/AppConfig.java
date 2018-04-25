@@ -11,9 +11,12 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -27,6 +30,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -36,6 +40,7 @@ import java.util.Locale;
 @EnableAspectJAutoProxy
 @ComponentScan("com.epam.spring.hometask")
 @Import({ SecurityConfig.class })
+@EnableTransactionManagement
 public class AppConfig {
 
     @Bean
@@ -115,4 +120,8 @@ public class AppConfig {
         return db;
     }
 
+    @Bean
+    public PlatformTransactionManager transactionManager() throws SQLException {
+        return new DataSourceTransactionManager(dataSource());
+    }
 }
