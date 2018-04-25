@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 @Transactional(readOnly = true)
@@ -68,10 +67,4 @@ public class BookingFacadeImpl implements BookingFacade {
     public Collection<Ticket> getAll() {
         return bookingService.getAll();
     }
-
-//    @Transactional
-//    public void deposit(double amount, User user) {
-//        UserAccount account = userAccountService.getByUser(user);
-//        userAccountService.deposit(account, amount);
-//    }
 }
