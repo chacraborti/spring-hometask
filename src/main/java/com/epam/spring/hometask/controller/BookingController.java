@@ -1,6 +1,7 @@
 package com.epam.spring.hometask.controller;
 
 import com.epam.spring.hometask.domain.Ticket;
+import com.epam.spring.hometask.service.BookingFacade;
 import com.epam.spring.hometask.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ import java.util.Collection;
 public class BookingController {
 
     @Autowired
-    private BookingService service;
+    private BookingFacade service;
 //
 //    @RequestMapping(method = RequestMethod.POST)
 //    public String bookTicket(@RequestParam Ticket ticket,
