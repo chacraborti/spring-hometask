@@ -2,11 +2,11 @@ package com.epam.spring.hometask.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
-/**
- * @author Yuriy_Tkach
- */
+@XmlRootElement
 public class Event extends DomainObject {
 
     private String name;
@@ -27,7 +27,7 @@ public class Event extends DomainObject {
     public String getName() {
         return name;
     }
-
+    @XmlElement
     public void setName(String name) {
         this.name = name;
     }
@@ -35,7 +35,7 @@ public class Event extends DomainObject {
     public int getBasePrice() {
         return basePrice;
     }
-
+    @XmlElement
     public void setBasePrice(int basePrice) {
         this.basePrice = basePrice;
     }
@@ -43,7 +43,7 @@ public class Event extends DomainObject {
     public EventRating getRating() {
         return rating;
     }
-
+    @XmlElement
     public void setRating(EventRating rating) {
         this.rating = rating;
     }

@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Nonnull;
+import javax.jws.WebMethod;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,6 +20,7 @@ import java.util.Set;
 public class BookingServiceDaoImpl implements BookingServiceDao{
 
     JdbcTemplate jdbcTemplate;
+
 
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;

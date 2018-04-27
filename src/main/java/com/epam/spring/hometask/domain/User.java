@@ -1,8 +1,17 @@
 package com.epam.spring.hometask.domain;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
+@XmlType(propOrder = {"firstName", "login", "password", "roles", "tickets"})
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class User extends DomainObject {
 
     private String firstName;
@@ -19,6 +28,7 @@ public class User extends DomainObject {
         return firstName;
     }
 
+    @XmlElement
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -26,7 +36,7 @@ public class User extends DomainObject {
     public String getLogin() {
         return login;
     }
-
+    @XmlElement
     public void setLogin(String login) {
         this.login = login;
     }
@@ -34,7 +44,8 @@ public class User extends DomainObject {
     public List<Ticket> getTickets() {
         return tickets;
     }
-
+    @XmlElementWrapper
+    @XmlElement
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
@@ -42,7 +53,7 @@ public class User extends DomainObject {
     public String getPassword() {
         return password;
     }
-
+    @XmlElement
     public void setPassword(String password) {
         this.password = password;
     }
@@ -50,7 +61,8 @@ public class User extends DomainObject {
     public List<Role> getRoles() {
         return roles;
     }
-
+    @XmlElementWrapper
+    @XmlElement
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }

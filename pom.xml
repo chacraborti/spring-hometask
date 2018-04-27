@@ -30,6 +30,38 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>schemagen</id>
+                        <goals>
+                            <goal>schemagen</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!--
+                     SchemaGenerator configuration properties, which excludes files found in the source directories.
+                     This consists of a (List of) Filters, all of which should implement the
+
+                     org.codehaus.mojo.jaxb2.shared.filters.Filter
+
+                     interface.
+                   -->
+                    <schemaSourceExcludeFilters>
+                        <noJaxbIndex implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">
+                            <!--Костыль to resolve  is an interface, and JAXB can't handle interfaces.-->
+                            <patterns>
+                                <pattern>MyUserPrincipal\.java</pattern>
+                                <pattern>PdfView\.java</pattern>
+                                <pattern>dao</pattern>
+                            </patterns>
+                        </noJaxbIndex>
+                    </schemaSourceExcludeFilters>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
@@ -187,7 +219,6 @@
             <artifactId>h2</artifactId>
             <version>${dbh2.version}</version>
         </dependency>
-
 
     </dependencies>
 </project>
