@@ -39,26 +39,31 @@
                             <goal>schemagen</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
                 </executions>
                 <configuration>
-                    <!--
-                     SchemaGenerator configuration properties, which excludes files found in the source directories.
-                     This consists of a (List of) Filters, all of which should implement the
-
-                     org.codehaus.mojo.jaxb2.shared.filters.Filter
-
-                     interface.
-                   -->
-                    <schemaSourceExcludeFilters>
-                        <noJaxbIndex implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">
-                            <!--Костыль to resolve  is an interface, and JAXB can't handle interfaces.-->
-                            <patterns>
-                                <pattern>MyUserPrincipal\.java</pattern>
-                                <pattern>PdfView\.java</pattern>
-                                <pattern>dao</pattern>
-                            </patterns>
-                        </noJaxbIndex>
-                    </schemaSourceExcludeFilters>
+                    <sources>
+                        <source>D:\IdeaProjects\spring-hometask\src\main\java\com\epam\spring\hometask\domain\User.java</source>
+                        <source>D:\IdeaProjects\spring-hometask\src\main\java\com\epam\spring\hometask\domain\Event.java</source>
+                        <schemaDirectory>D:\IdeaProjects\spring-hometask\target\generated-resources\schemagen</schemaDirectory>
+                        <!--<outputDirectory>D:\IdeaProjects\spring-hometask\src\main\java</outputDirectory>-->
+                        <!--<clearOutputDir>false</clearOutputDir>-->
+                    </sources>
+                    <!--<schemaSourceExcludeFilters>-->
+                        <!--<noJaxbIndex implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">-->
+                            <!--&lt;!&ndash;Костыль to resolve  is an interface, and JAXB can't handle interfaces.&ndash;&gt;-->
+                            <!--<patterns>-->
+                                <!--<pattern>MyUserPrincipal\.java</pattern>-->
+                                <!--<pattern>PdfView\.java</pattern>-->
+                                <!--<pattern>dao</pattern>-->
+                            <!--</patterns>-->
+                        <!--</noJaxbIndex>-->
+                    <!--</schemaSourceExcludeFilters>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -86,6 +91,29 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
+            <version>2.4.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+            <version>1.6.2</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -218,6 +246,12 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${dbh2.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>1.2.3.RELEASE</version>
         </dependency>
 
     </dependencies>
