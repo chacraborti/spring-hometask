@@ -1,4 +1,4 @@
-package com.epam.spring.ws;
+package com.epam.spring.ws.soap;
 
 import com.epam.spring.hometask.domain.User;
 import com.epam.spring.hometask.service.UserService;
